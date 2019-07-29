@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" name="viewport">
+    <title>帮助中心</title>
+    <link href="css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="topList">
+        <ul>
+            <li class="topli clearfix" id="topli"></li>
+        </ul>
+    </div>
+    <script id="getlist" type="text/html">
+        <h5>{{data[0].fTitle}}</h5>
+        <ul>
+            {{each data value i}}
+            <li>
+                <a href="article.html?sId={{value.sId}}">
+                    <span>{{value.sTitle}}</span>
+                    <img class="go" src="img/go.png" alt="" />
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+    <script src="js/jquery-2.1.4.min.js" charset="utf-8"></script>
+    <script src="../js/url.js"></script>
+    <script src="../js/template/template-web.js"></script>
+    <script src="../js/getUrlParam.js"></script>
+    <script>
+        var thisFid = getUrlParam("fId");
+
+        function getData() {
+            $.ajax({
+                url: url + "/customer/firstTitleDetails",
+                type: "post",
+                dataType: "json",
+                data: {
+                    fId: thisFid
+                },
+                success: function(res) {
+                    console.log(res);
+                    var html = template('getlist', res);
+                    document.getElementById("topli").innerHTML = html;
+                },
+                error: function(xhr) {
+                    console.log("Error: " + xhr);
+                }
+            });
+        }
+        getData();
+    </script>
+</body>
+
+</html>

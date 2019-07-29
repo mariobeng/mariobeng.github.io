@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" name="viewport">
+    <title>帮助中心</title>
+    <link href="css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <style>
+        html {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="articleBox" id="articleBox"></div>
+    <script id="getArticle" type="text/html">
+        <h1>{{data.sTitle}}</h1>
+        <article>{{@data.content}}</article>
+    </script>
+    <script src="js/jquery-2.1.4.min.js" charset="utf-8"></script>
+    <script src="../js/url.js"></script>
+    <script src="../js/template/template-web.js"></script>
+    <script src="../js/getUrlParam.js"></script>
+    <script>
+        var thisSid = getUrlParam("sId");
+
+        function getData() {
+            $.ajax({
+                url: url + "/customer/secondTitleDetails",
+                type: "post",
+                dataType: "json",
+                data: {
+                    sId: thisSid
+                },
+                success: function(res) {
+                    console.log(res);
+                    var html = template('getArticle', res);
+                    document.getElementById("articleBox").innerHTML = html;
+                },
+                error: function(xhr) {
+                    console.log("Error: " + xhr);
+                }
+            });
+        }
+        getData();
+    </script>
+</body>
+
+</html>

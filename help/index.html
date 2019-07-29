@@ -1,0 +1,81 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" name="viewport">
+    <title>帮助中心</title>
+    <link href="css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="helpList">
+        <ul id="helpList">
+            <!-- <li class="clearfix">
+                <a href="javascript:;">
+                    <img class="icon" src="img/jichu.png" alt="" />
+                    <span>基础教程</span>
+                    <img class="go" src="img/go.png" alt="" />
+                </a>
+            </li>
+            <li class="clearfix">
+                <a href="javascript:;">
+                    <img class="icon" src="img/coin.png" alt="" />
+                    <span>转账/收款/兑换</span>
+                    <img class="go" src="img/go.png" alt="" />
+                </a>
+            </li>
+            <li class="clearfix">
+                <a href="javascript:;">
+                    <img class="icon" src="img/wallet.png" alt="" />
+                    <span>链上钱包与链下钱包</span>
+                    <img class="go" src="img/go.png" alt="" />
+                </a>
+            </li>
+            <li class="clearfix">
+                <a href="javascript:;">
+                    <img class="icon" src="img/comc.png" alt="" />
+                    <span>COMC</span>
+                    <img class="go" src="img/go.png" alt="" />
+                </a>
+            </li> -->
+        </ul>
+    </div>
+    <script id="getlist" type="text/html">
+        {{each data.list value i}}
+        <li class="clearfix">
+            <a href="list.html?fId={{value.fId}}">
+                <span>{{value.fTitle}}</span>
+                <img class="go" src="img/go.png" alt="" />
+            </a>
+        </li>
+        {{/each}}
+    </script>
+    <script src="js/jquery-2.1.4.min.js" charset="utf-8"></script>
+    <script src="../js/url.js"></script>
+    <script src="../js/template/template-web.js"></script>
+    <script>
+        function getData() {
+            $.ajax({
+                url: url + "/customer/firstTitle",
+                type: "post",
+                dataType: "json",
+                data: {
+                    pageNum: 1
+                },
+                success: function(res) {
+                    console.log(res);
+                    var html = template('getlist', res);
+                    document.getElementById("helpList").innerHTML = html;
+                },
+                error: function(xhr) {
+                    console.log("Error: " + xhr);
+                }
+            });
+        }
+        getData();
+    </script>
+</body>
+
+</html>
