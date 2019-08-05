@@ -15,19 +15,19 @@
             height: 100%;
             overflow: hidden;
         }
-        
+
         body {
             background: url(images/invite_bg.png) no-repeat left top;
             background-size: 100% 100%;
         }
-        
+
         .logo {
             display: block;
             width: 50%;
             margin: 90px auto 0;
             float: none;
         }
-        
+
         .intype {
             width: 70%;
             height: 40px;
@@ -36,20 +36,20 @@
             background-color: #fff;
             display: flex;
         }
-        
+
         .intype li {
             width: 50%;
             line-height: 40px;
             text-align: center;
             font-size: 1.1rem;
         }
-        
+
         .intype li.current {
             background-color: #762DE4;
             border-radius: 20px;
             color: #fff;
         }
-        
+
         .tel_box {
             width: 85%;
             height: 40px;
@@ -62,7 +62,7 @@
             color: #999;
             display: flex;
         }
-        
+
         .tel_box span {
             display: block;
             height: 26px;
@@ -71,18 +71,19 @@
             border-right: 1px solid #BE9F63;
             padding-right: 2%;
         }
-        
+
         .tel_box input {
             height: 40px;
             line-height: 40px;
             font-size: 1.1rem;
-            margin-left: 2%;
+            /*margin-left: 2%;*/
             border: none;
             border-radius: 0 20px 20px 0;
-            width: 73%;
+            /*width: 73%;*/
+            width: 100%;
             background-color: unset;
         }
-        
+
         button.download {
             display: block;
             width: 85%;
@@ -97,7 +98,7 @@
             line-height: 40px;
             border: none;
         }
-        
+
         .areacode {
             position: fixed;
             width: 100%;
@@ -110,7 +111,7 @@
             padding: 15px 0 15px 5%;
             display: none;
         }
-        
+
         .areacode ul li {
             display: flex;
             justify-content: space-between;
@@ -119,27 +120,27 @@
             padding-right: 5%;
             margin-bottom: 5px;
         }
-        
+
         .areacode ul li span {
             font-size: 1rem;
         }
-        
+
         .areacode .code {
             color: #762DE4;
         }
-        
+
         .invited {
             width: 85%;
             margin: 0 auto;
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 5px;
         }
-        
+
         .tab_box {
             padding: 20px 0;
             margin-top: 20px;
         }
-        
+
         .tab_box>input,
         .yzm input {
             display: block;
@@ -153,11 +154,11 @@
             padding: 0 4%;
             font-size: 1.1rem;
         }
-        
+
         .yzm {
             position: relative;
         }
-        
+
         .getYzm {
             width: 25%;
             height: 32px;
@@ -171,27 +172,27 @@
             top: 4px;
             font-size: 0.8rem;
         }
-        
+
         .proto {
             width: 85%;
             margin: 10px auto 0;
         }
-        
+
         .proto input {
             float: left;
             margin-top: 2px;
         }
-        
+
         .proto span {
             float: left;
             color: #868685;
             font-weight: bold;
         }
-        
+
         .proto span a {
             color: #2A2A2A;
         }
-        
+
         .protan {
             position: fixed;
             width: 100%;
@@ -201,7 +202,7 @@
             top: 0;
             display: none;
         }
-        
+
         .protanBox {
             height: 95%;
             padding: 0 5% 20px;
@@ -209,19 +210,23 @@
             position: absolute;
             top: 30px;
         }
-        
+
         .protan p {
             text-align: left;
             line-height: 28px;
             font-size: 1rem;
         }
-        
+
         a.close_t {
             display: block;
             color: #ff0000;
             float: right;
             margin: 8px 5% 0 0;
             font-size: 1rem;
+        }
+        input#inviteCode{
+            border: 1px solid #ccc;
+            background-color: #ddd;
         }
     </style>
 </head>
@@ -235,7 +240,7 @@
     <div class="invited">
         <div class="tab_box">
             <div class="tel_box">
-                <span id="areacode">+86</span><input id="tel" type="tel" placeholder="请输入手机号">
+                <!-- <span id="areacode">+86</span> --><input id="tel" type="tel" placeholder="请输入手机号">
             </div>
             <div class="yzm">
                 <input id="yzm" type="text" placeholder="请输入验证码">
@@ -243,17 +248,17 @@
             </div>
             <input id="psw" type="password" placeholder="请设置登录密码">
             <input id="payPsw" type="password" maxlength="6" onkeyup="value=value.replace(/[^\d\.]/g,'')" placeholder="请设置支付密码（6位数字）">
-            <input id="userName" type="text" maxlength="6" onkeyup="value=value.replace(/[^\w]/g,'')" placeholder="请设置昵称">
-            <input id="inviteCode" type="text" placeholder="邀请码">
+            <input id="userName" type="text" maxlength="10" placeholder="请设置昵称">
+            <input id="inviteCode" disabled="disabled" type="text" placeholder="邀请码">
             <div class="proto clearfix">
                 <label for="protocol"><input type="checkbox" checked="checked" name="protocol" id="protocol"><span>我已仔细阅读并同意<a href="javascript:;" id="protxt">《用户协议》</a></span></label>
             </div>
         </div>
     </div>
     <button href="javascript:;" class="download">注册</button>
-    <div class="areacode">
+    <!-- <div class="areacode">
         <ul></ul>
-    </div>
+    </div> -->
     <div class="protan">
         <a class="close_t">[关闭]</a>
         <div class="protanBox">
@@ -399,20 +404,20 @@
             event: 'click'
         }); */
         onkeyup = "value=value.replace(/^\d{6}$/g,'')"
-        $("#areacode").bind("click", function() {
-            $(".areacode").show();
-        })
-        $("body").on("click", ".areacode ul li", function() {
-                var code = $(this).find("span.code").html();
-                $("#areacode").html(code);
-                $(".areacode").hide();
-            })
+        // $("#areacode").bind("click", function() {
+        //     $(".areacode").show();
+        // })
+        // $("body").on("click", ".areacode ul li", function() {
+        //         var code = $(this).find("span.code").html();
+        //         $("#areacode").html(code);
+        //         $(".areacode").hide();
+        //     })
             //获取和展示国家和电话区号
-        $.getJSON("json/areacode.json", function(data) {
-                for (let i = 0; i < data.length; i++) {
-                    $(".areacode ul").append("<li><span class=\"cname\">" + data[i].cnname + "</span><span class=\"code\">+" + data[i].areacode + "</span></li>");
-                }
-            })
+        // $.getJSON("json/areacode.json", function(data) {
+        //         for (let i = 0; i < data.length; i++) {
+        //             $(".areacode ul").append("<li><span class=\"cname\">" + data[i].cnname + "</span><span class=\"code\">+" + data[i].areacode + "</span></li>");
+        //         }
+        //     })
             /*判断邮箱格式*/
             /* function pd_email() {
                 var c_email = $("#email").val();
@@ -456,8 +461,8 @@
                 type: "post",
                 dataType: "json",
                 data: {
-                    account: $("#tel").val(),
-                    prefix: $("#areacode").html()
+                    account: $("#tel").val()
+                    // prefix: $("#areacode").html()
                 },
                 success: function(res) {
                     console.log(res);
@@ -521,7 +526,7 @@
                 dataType: "json",
                 data: {
                     account: $("#tel").val(),
-                    prefix: $("#areacode").html(),
+                    // prefix: $("#areacode").html(),
                     code: $("#yzm").val()
                 },
                 success: function(res) {
@@ -602,7 +607,7 @@
                     password: SHA256_hash($("#psw").val()),
                     payPassWord: SHA256_hash($("#payPsw").val()),
                     userName: $("#userName").val(),
-                    phonePrefix: $("#areacode").html(),
+                    //phonePrefix: $("#areacode").html(),
                     recommendCode: invite_code
                 },
                 success: function(res) {
