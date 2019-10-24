@@ -1,5 +1,11 @@
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+_site
+_posts/_draft
+_posts/_archive
+_archive
+node_modules
+.vscode
+*.log
+*.sh
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
