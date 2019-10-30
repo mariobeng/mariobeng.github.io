@@ -1,75 +1,79 @@
 # Site settings
 title: Mario Blog
-SEOTitle: Mario Blog
+SEOTitle: Mario的博客 | Mario Blog
 header-img: img/home-bg.jpg
 email: fankaibeng@sina.com
-description: ""
-keyword: ""
-url: "https://mariobeng.github.io/"              # your host, for absolute URL
-baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
+description: "不期而至的大雨 将我们困在这里"
+keyword: "蹦蹦, mario, @mariobeng, 蹦蹦的博客, Mario Blog, 博客, 个人网站, 互联网, Web, JavaScript, 前端"
+url: "https://mariobeng.github.io/"              # your host, for absolute URL主页地址，
+baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
+# 发布具有未来日期的文章或集合文档
+future: true
 
-
-# SNS settings
+# 社交账号
 RSS: false
-weibo_username:     huxpro
-zhihu_username:     huxpro
-github_username:    huxpro
-#twitter_username:  huxpro
-facebook_username:  huxpro
+weibo_username:     樊凯蹦
+zhihu_username:     蹦蹦
+github_username:    mariobeng
+#linkedin_username:  firstname-lastname-idxxxx
 
 
 
-# Build settings
-# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
+# 生成设置
+# 从2016年起，github页面不支持“pygments”。用“rouge”来突出显示
 highlighter: rouge
 permalink: pretty
 paginate: 10
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
-anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
+# 如果你想自定义锚定。在post.html的181行
+anchorjs: true
+# timezone: CN
 
 
 
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
-gems: [jekyll-paginate]
+# 确保你有安装分页
+# `$ gem install jekyll-paginate`
+plugins: [jekyll-paginate]
 
 
 
-# Markdown settings
-# replace redcarpet to kramdown,
-# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
-# document: http://jekyllrb.com/docs/configuration/#kramdown
+# Markdown 配置
+# 将redcarpet替换为kramdown，（redcarpet和kramdown均为markdown解析器）,
+# 虽然redcarpet可以自动突出显示代码，但由于缺少标题id，目录不可能实现，所以我切换到kramdown
+# 文档: http://jekyllcn.com/docs/configuration/#kramdown
 markdown: kramdown
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
 
 
 
 # Disqus settings
-#disqus_username: _your_disqus_short_name_
+# disqus_username: hux
 
-# Duoshuo settings
-duoshuo_username: huxblog
-# Share component is depend on Comment so we can NOT use share only.
-duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+# 网易跟帖
+netease_comment: false
 
 
 
-
-# Analytics settings
-# Baidu Analytics
-ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
-# Google Analytics
-ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+# 统计设置
+# 百度统计
+baidu-analysis: 4277ba8ef111c52d191e577365d20683
 
 
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "写写代码，做做设计，看看产品。世界那么大，多玩玩看看。"
-sidebar-avatar: /img/avatar-hux.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "For the next quantum leap<br>离开世界之前，一切都是过程"
+sidebar-avatar: /img/avatar-hux-ny.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -79,22 +83,48 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 
 
 
+# Progressive Web Apps
+chrome-tab-theme-color: "#000000"
+service-worker: true
+
+
+
+# MathJax rendering for layout:page (e.g. post preview)
+page-mathjax: false
+
+
+
 # Friends
 friends: [
     {
-        title: "Hux Blog",
-        href: "http://huangxuan.me"
+    #     title: "Su",
+    #     href: "http://su.gallery/"
+    # },{
+        title: "乱序",
+        href: "http://mida.re/"
     },{
-        title: "Foo",
-        href: "#"
+        title: "Sherry Wu",
+        href: "https://xuechundesign.github.io"
     },{
-        title: "Bar",
-        href: "#"
+        title: "Luke 的自留地",
+        href: "http://hmqk1995.github.io"
     },{
-        title: "Example Friends",
-        href: "#"
+        title: "Ebn's Blog",
+        href: "http://ebnbin.com/"
     },{
-        title: "It helps SEO",
-        href: "#"
+        title: "SmdCn's Blog",
+        href: "http://blog.smdcn.net"
+    },{
+        title: "JiyinYiyong",
+        href: "http://tiye.me/"
+    },{
+        title: "David's Game",
+        href: "https://www.ruoyaowu.com/"
+    },{
+        title: "DHong Say",
+        href: "http://dhong.co"
+    },{
+        title: "尹峰以为",
+        href: "http://ingf.github.io/"
     }
 ]
