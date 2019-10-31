@@ -13,8 +13,8 @@ future: true
 
 # 社交账号
 RSS: false
-weibo_username:     樊凯蹦
-zhihu_username:     蹦蹦
+weibo_username:     bengge
+zhihu_username:     mario-fk
 github_username:    mariobeng
 #linkedin_username:  firstname-lastname-idxxxx
 
@@ -66,14 +66,14 @@ netease_comment: false
 
 # 统计设置
 # 百度统计
-baidu-analysis: 4277ba8ef111c52d191e577365d20683
+# baidu-analysis: 4277ba8ef111c52d191e577365d20683
 
 
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "For the next quantum leap<br>离开世界之前，一切都是过程"
-sidebar-avatar: /img/avatar-hux-ny.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "看脚下一片黑暗<br>望头顶星光璀璨"
+sidebar-avatar: /img/avatar-tiao-ny.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
