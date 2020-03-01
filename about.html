@@ -1,24 +1,16 @@
----
-layout: page
-title: "About"
-description: "你是我的梦想"
-header-img: "img/about-bg.jpg"
-multilingual: true
----
-
-{% include multilingual-sel.html %}
+--- layout: page title: "About" description: "你是我的梦想" header-img: "img/about-bg.jpg" multilingual: true --- {% include multilingual-sel.html %}
 
 <!-- Chinese Version -->
-<div class="zh post-container">
+<!-- <div class="zh post-container">
     {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
     {{ about_zh | markdownify }}
-</div>
+</div> -->
 
 <!-- English Version -->
-<div class="en post-container">
+<!-- <div class="en post-container">
     {% capture about_en %}{% include about/en.md %}{% endcapture %}
     {{ about_en | markdownify }}
-</div>
+</div> -->
 
 
 {% if site.disqus_username %}
@@ -38,7 +30,9 @@ multilingual: true
     var disqus_url = "{{site.url}}{{page.url}}";
 
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
